@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type TargetAndTransition } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SoundWaveProps {
@@ -8,13 +8,12 @@ interface SoundWaveProps {
 }
 
 export function SoundWave({ className, bars = 7, color = "bg-primary" }: SoundWaveProps) {
-  // We use different delay and duration to make it look organic
-  const getAnimation = (i: number) => ({
+  const getAnimation = (i: number): TargetAndTransition => ({
     height: ["20%", "100%", "30%", "80%", "20%"],
     transition: {
       duration: 1.2 + (i % 3) * 0.2,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       delay: i * 0.1,
     },
   });
