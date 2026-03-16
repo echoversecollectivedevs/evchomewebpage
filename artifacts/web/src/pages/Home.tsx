@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { Headphones, Mic, Radio, Music, Speaker, Settings2, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
@@ -52,21 +53,15 @@ const services = [
 ];
 
 export default function Home() {
+  const [submitted, setSubmitted] = React.useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Visual only submission
-    const form = e.target as HTMLFormElement;
-    const btn = form.querySelector('button');
-    if (btn) {
-      const originalText = btn.innerText;
-      btn.innerText = "Message Transmitted!";
-      btn.classList.add("bg-white", "text-black");
-      setTimeout(() => {
-        btn.innerText = originalText;
-        btn.classList.remove("bg-white", "text-black");
-        form.reset();
-      }, 3000);
-    }
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      (e.target as HTMLFormElement).reset();
+    }, 3000);
   };
 
   return (
@@ -289,9 +284,13 @@ export default function Home() {
               </div>
               <button 
                 type="submit"
-                className="w-full py-4 rounded-xl border border-white/20 bg-white/5 text-white font-display font-bold tracking-widest hover:bg-white hover:text-black transition-all duration-300 uppercase"
+                className={`w-full py-4 rounded-xl border font-display font-bold tracking-widest transition-all duration-300 uppercase ${
+                  submitted
+                    ? "bg-white text-black border-white"
+                    : "border-white/20 bg-white/5 text-white hover:bg-white hover:text-black"
+                }`}
               >
-                Send Signal
+                {submitted ? "Message Transmitted!" : "Send Signal"}
               </button>
             </form>
           </motion.div>
