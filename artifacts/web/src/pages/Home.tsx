@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { AnimatedText } from "@/components/ui/animated-shiny-text";
+import { FlipWords } from "@/components/ui/flip-words";
 import logo from "@assets/noBgColor_1773620670918.png";
 
 export default function Home() {
@@ -28,25 +28,25 @@ export default function Home() {
         <motion.img
           src={logo}
           alt="Echoverse Collective"
-          className="w-64 md:w-80 mb-4 drop-shadow-[0_0_60px_rgba(255,255,255,0.06)]"
+          className="w-64 md:w-80 mb-8 drop-shadow-[0_0_60px_rgba(255,255,255,0.06)]"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" as const }}
         />
 
         <motion.div
+          className="text-base md:text-lg lg:text-xl font-light tracking-[0.15em] uppercase text-white/60 mb-10 flex items-center justify-center"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <AnimatedText
-            text="Shaping a future trusted with AI"
-            gradientColors="linear-gradient(90deg, #333, #aaa, #fff, #aaa, #333)"
-            gradientAnimationDuration={3}
-            hoverEffect
-            className="py-2 mb-6"
-            textClassName="!text-base md:!text-lg lg:!text-xl font-light tracking-[0.15em] uppercase"
+          <span>Shaping a future</span>
+          <FlipWords
+            words={["Trusted", "Powered"]}
+            duration={3000}
+            className="text-white font-normal"
           />
+          <span>with AI</span>
         </motion.div>
 
         <motion.a
