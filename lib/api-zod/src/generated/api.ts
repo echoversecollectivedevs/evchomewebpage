@@ -14,3 +14,11 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Add an email to the subscriber list
+ * @summary Subscribe to daily AI briefing
+ */
+export const CreateSubscriberBody = zod.object({
+  email: zod.string().email(),
+});

@@ -5,17 +5,6 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
-
-export interface CreateSubscriberBody {
-  email: string;
-}
-
-export interface SubscribeResponse {
-  message: string;
-}
 
 export interface ErrorResponse {
   message: string;

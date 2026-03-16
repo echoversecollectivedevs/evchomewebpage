@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: subscribers
+    description: Subscriber operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /subscribers:
+    post:
+      operationId: createSubscriber
+      tags: [subscribers]
+      summary: Subscribe to daily AI briefing
+      description: Add an email to the subscriber list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSubscriberBody"
+      responses:
+        "201":
+          description: Subscribed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubscribeResponse"
+        "409":
+          description: Email already subscribed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "400":
+          description: Invalid email
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,25 @@ components:
           type: string
       required:
         - status
-
+    CreateSubscriberBody:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+        - email
+    SubscribeResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message

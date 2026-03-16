@@ -5,18 +5,26 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import type {
+  MutationFunction,
   QueryFunction,
   QueryKey,
+  UseMutationOptions,
+  UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
 } from "@tanstack/react-query";
 
-import type { HealthStatus } from "./api.schemas";
+import type {
+  CreateSubscriberBody,
+  ErrorResponse,
+  HealthStatus,
+  SubscribeResponse,
+} from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
-import type { ErrorType } from "../custom-fetch";
+import type { ErrorType, BodyType } from "../custom-fetch";
 
 type AwaitedInput<T> = PromiseLike<T> | T;
 
@@ -99,3 +107,90 @@ export function useHealthCheck<
 
   return { ...query, queryKey: queryOptions.queryKey };
 }
+
+/**
+ * Add an email to the subscriber list
+ * @summary Subscribe to daily AI briefing
+ */
+export const getCreateSubscriberUrl = () => {
+  return `/api/subscribers`;
+};
+
+export const createSubscriber = async (
+  createSubscriberBody: CreateSubscriberBody,
+  options?: RequestInit,
+): Promise<SubscribeResponse> => {
+  return customFetch<SubscribeResponse>(getCreateSubscriberUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(createSubscriberBody),
+  });
+};
+
+export const getCreateSubscriberMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof createSubscriber>>,
+    TError,
+    { data: BodyType<CreateSubscriberBody> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof createSubscriber>>,
+  TError,
+  { data: BodyType<CreateSubscriberBody> },
+  TContext
+> => {
+  const mutationKey = ["createSubscriber"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof createSubscriber>>,
+    { data: BodyType<CreateSubscriberBody> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return createSubscriber(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type CreateSubscriberMutationResult = NonNullable<
+  Awaited<ReturnType<typeof createSubscriber>>
+>;
+export type CreateSubscriberMutationBody = BodyType<CreateSubscriberBody>;
+export type CreateSubscriberMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Subscribe to daily AI briefing
+ */
+export const useCreateSubscriber = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof createSubscriber>>,
+    TError,
+    { data: BodyType<CreateSubscriberBody> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof createSubscriber>>,
+  TError,
+  { data: BodyType<CreateSubscriberBody> },
+  TContext
+> => {
+  return useMutation(getCreateSubscriberMutationOptions(options));
+};
