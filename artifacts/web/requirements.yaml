@@ -1,0 +1,14 @@
+packages:
+  "framer-motion": "For scroll-triggered section reveals, smooth transitions, and the animated sound wave equalizer effect."
+  "clsx": "For conditional class name joining."
+  "tailwind-merge": "For merging Tailwind utility classes."
+
+images:
+  - path: "artifacts/web/public/images/abstract-sound.png"
+    description: "A dark, abstract 3D representation of sound waves or sonic landscapes. Sleek, modern, and cinematic. Deep blacks with subtle silver and white lighting accents. High contrast, premium editorial look."
+    aspect_ratio: "16:9"
+
+notes:
+  - No backend is required for this landing page.
+  - The contact form is visual only and does not submit to any API.
+  - Smooth scrolling is handled natively via CSS scroll-behavior.

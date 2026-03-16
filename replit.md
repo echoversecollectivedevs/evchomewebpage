@@ -21,6 +21,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
+│   ├── web/                # ECHOVERSE COLLECTIVE landing page (React + Vite)
 │   └── api-server/         # Express API server
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
@@ -90,6 +91,17 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 ### `lib/api-client-react` (`@workspace/api-client-react`)
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
+
+### `artifacts/web` (`@workspace/web`)
+
+ECHOVERSE COLLECTIVE dark-themed landing page built with React + Vite. Frontend-only, no backend API needed.
+
+- **Stack**: React, Tailwind CSS, Framer Motion, Lucide React icons
+- **Fonts**: Syne (display/headings), Manrope (body)
+- **Sections**: Hero (with animated sound wave bars + brand logo), About, Services (6 cards), Contact (form), Footer
+- **Features**: Smooth scroll navigation, scroll-triggered animations, mobile responsive with hamburger menu, glass-morphism effects
+- **Logo**: `attached_assets/image_1773618990427.png` (imported via `@assets` alias)
+- `pnpm --filter @workspace/web run dev` — run the dev server
 
 ### `scripts` (`@workspace/scripts`)
 
