@@ -94,13 +94,12 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 
 ### `artifacts/web` (`@workspace/web`)
 
-ECHOVERSE COLLECTIVE dark-themed landing page built with React + Vite. Frontend-only, no backend API needed.
+ECHOVERSE COLLECTIVE minimal dark-themed homepage built with React + Vite. Frontend-only, no backend API needed.
 
-- **Stack**: React, Tailwind CSS, Framer Motion, Lucide React icons
+- **Stack**: React, Tailwind CSS, Framer Motion
 - **Fonts**: Syne (display/headings), Manrope (body)
-- **Sections**: Hero (with animated sound wave bars + brand logo), About, Services (6 cards), Contact (form), Footer
-- **Features**: Smooth scroll navigation, scroll-triggered animations, mobile responsive with hamburger menu, glass-morphism effects
-- **Logo**: `attached_assets/image_1773618990427.png` (imported via `@assets` alias)
+- **Layout**: Single full-screen centered page — logo, animated sound wave bars, tagline, and "Get in Touch" CTA
+- **Logo**: `attached_assets/image_1773618990427.png` (white logo, imported via `@assets` alias)
 - `pnpm --filter @workspace/web run dev` — run the dev server
 
 ### `scripts` (`@workspace/scripts`)
