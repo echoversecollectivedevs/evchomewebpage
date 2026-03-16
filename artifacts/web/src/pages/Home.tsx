@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FlipWords } from "@/components/ui/flip-words";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import logo from "@assets/noBgColor_1773620670918.png";
 
 export default function Home() {
@@ -49,15 +50,20 @@ export default function Home() {
           <span>with AI</span>
         </motion.div>
 
-        <motion.a
-          href="mailto:hello@echoversecollective.com"
-          className="px-8 py-3.5 rounded-full border border-white/20 text-sm font-medium tracking-widest uppercase text-white/80 hover:text-white hover:border-white/50 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition-all duration-300"
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          Get in Touch
-        </motion.a>
+          <HoverBorderGradient
+            as="a"
+            containerClassName="border-white/10"
+            className="px-6 py-2.5 text-sm font-medium tracking-widest uppercase"
+            {...({ href: "mailto:hello@echoversecollective.com" } as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          >
+            Get in Touch
+          </HoverBorderGradient>
+        </motion.div>
       </div>
     </div>
   );
