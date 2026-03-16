@@ -1,11 +1,6 @@
 import React, { useRef, useEffect, useState, createElement, useMemo, useCallback, memo } from "react";
 
-export enum Tag {
-  H1 = "h1",
-  H2 = "h2",
-  H3 = "h3",
-  P = "p",
-}
+export type TagType = "h1" | "h2" | "h3" | "p";
 
 type VaporizeTextCycleProps = {
   texts: string[];
@@ -24,7 +19,8 @@ type VaporizeTextCycleProps = {
   };
   direction?: "left-to-right" | "right-to-left";
   alignment?: "left" | "center" | "right";
-  tag?: Tag;
+  tag?: TagType;
+  mode?: "vaporize" | "materialize";
 };
 
 type Particle = {
@@ -48,11 +44,7 @@ type TextBoundaries = {
   width: number;
 };
 
-declare global {
-  interface HTMLCanvasElement {
-    textBoundaries?: TextBoundaries;
-  }
-}
+type CanvasWithBoundaries = HTMLCanvasElement & { textBoundaries?: TextBoundaries };
 
 export default function VaporizeTextCycle({
   texts = ["Next.js", "React"],
@@ -71,9 +63,10 @@ export default function VaporizeTextCycle({
   },
   direction = "left-to-right",
   alignment = "center",
-  tag = Tag.P,
+  tag = "p" as TagType,
+  mode = "vaporize",
 }: VaporizeTextCycleProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<CanvasWithBoundaries | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isInView = useIsInView(wrapperRef as React.RefObject<HTMLElement>);
   const lastFontRef = useRef<string | null>(null);
@@ -142,7 +135,12 @@ export default function VaporizeTextCycle({
   useEffect(() => {
     if (isInView) {
       const startAnimationTimeout = setTimeout(() => {
-        setAnimationState("vaporizing");
+        if (mode === "materialize") {
+          fadeOpacityRef.current = 0;
+          setAnimationState("fadingIn");
+        } else {
+          setAnimationState("vaporizing");
+        }
       }, 0);
       return () => clearTimeout(startAnimationTimeout);
     } else {
@@ -153,7 +151,7 @@ export default function VaporizeTextCycle({
       }
       return undefined;
     }
-  }, [isInView]);
+  }, [isInView, mode]);
 
   useEffect(() => {
     if (!isInView) return;
@@ -166,7 +164,7 @@ export default function VaporizeTextCycle({
       lastTime = currentTime;
 
       const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
+      const ctx = canvas?.getContext("2d", { willReadFrequently: true });
 
       if (!canvas || !ctx || !particlesRef.current.length) {
         frameId = requestAnimationFrame(animate);
@@ -219,9 +217,14 @@ export default function VaporizeTextCycle({
           if (fadeOpacityRef.current >= 1) {
             setAnimationState("waiting");
             setTimeout(() => {
-              setAnimationState("vaporizing");
-              vaporizeProgressRef.current = 0;
-              resetParticles(particlesRef.current);
+              if (mode === "materialize") {
+                fadeOpacityRef.current = 0;
+                setAnimationState("fadingIn");
+              } else {
+                setAnimationState("vaporizing");
+                vaporizeProgressRef.current = 0;
+                resetParticles(particlesRef.current);
+              }
             }, animationDurations.WAIT_DURATION);
           }
           break;
@@ -248,6 +251,7 @@ export default function VaporizeTextCycle({
     texts.length, 
     direction, 
     globalDpr, 
+    mode,
     memoizedUpdateParticles, 
     memoizedRenderParticles, 
     animationDurations.FADE_IN_DURATION, 
@@ -263,7 +267,7 @@ export default function VaporizeTextCycle({
         color,
         alignment,
       },
-      canvasRef: canvasRef as React.RefObject<HTMLCanvasElement>,
+      canvasRef: canvasRef as React.RefObject<CanvasWithBoundaries>,
       wrapperSize,
       particlesRef,
       globalDpr,
@@ -275,7 +279,7 @@ export default function VaporizeTextCycle({
     return handleFontChange({
       currentFont,
       lastFontRef,
-      canvasRef: canvasRef as React.RefObject<HTMLCanvasElement>,
+      canvasRef: canvasRef as React.RefObject<CanvasWithBoundaries>,
       wrapperSize,
       particlesRef,
       globalDpr,
@@ -307,7 +311,7 @@ export default function VaporizeTextCycle({
           color,
           alignment,
         },
-        canvasRef: canvasRef as React.RefObject<HTMLCanvasElement>,
+        canvasRef: canvasRef as React.RefObject<CanvasWithBoundaries>,
         wrapperSize: { width: container.clientWidth, height: container.clientHeight },
         particlesRef,
         globalDpr,
@@ -340,7 +344,9 @@ export default function VaporizeTextCycle({
   );
 }
 
-const SeoElement = memo(({ tag = Tag.P, texts }: { tag: Tag, texts: string[] }) => {
+const validTags: TagType[] = ["h1", "h2", "h3", "p"];
+
+const SeoElement = memo(({ tag = "p", texts }: { tag: TagType, texts: string[] }) => {
   const style = useMemo(() => ({
     position: "absolute" as const,
     width: "0",
@@ -350,7 +356,7 @@ const SeoElement = memo(({ tag = Tag.P, texts }: { tag: Tag, texts: string[] }) 
     pointerEvents: "none" as const,
   }), []);
 
-  const safeTag = Object.values(Tag).includes(tag) ? tag : "p";
+  const safeTag = validTags.includes(tag) ? tag : "p";
   
   return createElement(safeTag, { style }, texts?.join(" ") ?? "");
 });
@@ -368,7 +374,7 @@ const handleFontChange = ({
 }: {
   currentFont: string;
   lastFontRef: React.MutableRefObject<string | null>;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  canvasRef: React.RefObject<CanvasWithBoundaries>;
   wrapperSize: { width: number; height: number };
   particlesRef: React.MutableRefObject<Particle[]>;
   globalDpr: number;
@@ -401,9 +407,9 @@ const handleFontChange = ({
   return undefined;
 };
 
-const cleanup = ({ canvasRef, particlesRef }: { canvasRef: React.RefObject<HTMLCanvasElement>; particlesRef: React.MutableRefObject<Particle[]> }) => {
+const cleanup = ({ canvasRef, particlesRef }: { canvasRef: React.RefObject<CanvasWithBoundaries>; particlesRef: React.MutableRefObject<Particle[]> }) => {
   const canvas = canvasRef.current;
-  const ctx = canvas?.getContext("2d");
+  const ctx = canvas?.getContext("2d", { willReadFrequently: true });
   
   if (canvas && ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -424,7 +430,7 @@ const renderCanvas = ({
   transformedDensity,
 }: {
   framerProps: VaporizeTextCycleProps;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  canvasRef: React.RefObject<CanvasWithBoundaries>;
   wrapperSize: { width: number; height: number };
   particlesRef: React.MutableRefObject<Particle[]>;
   globalDpr: number;
@@ -434,7 +440,7 @@ const renderCanvas = ({
   const canvas = canvasRef.current;
   if (!canvas || !wrapperSize.width || !wrapperSize.height) return;
 
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
   if (!ctx) return;
 
   const { width, height } = wrapperSize;
