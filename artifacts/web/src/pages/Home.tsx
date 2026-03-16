@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { SoundWave } from "@/components/SoundWave";
-import logo from "@assets/image_1773618990427.png";
+import VaporizeTextCycle, { Tag } from "@/components/ui/vapour-text-effect";
+import logo from "@assets/Color_logo_with_background_1773620190899.png";
 
 export default function Home() {
   return (
@@ -11,18 +11,37 @@ export default function Home() {
         <motion.img
           src={logo}
           alt="Echoverse Collective"
-          className="w-64 md:w-80 mb-10 drop-shadow-[0_0_40px_rgba(255,255,255,0.08)]"
+          className="w-72 md:w-96 mb-8 drop-shadow-[0_0_40px_rgba(255,255,255,0.08)]"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" as const }}
         />
 
         <motion.div
+          className="w-full h-[60px] md:h-[80px] mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <SoundWave bars={7} className="mb-10 opacity-60" />
+          <VaporizeTextCycle
+            texts={["ECHOVERSE COLLECTIVE"]}
+            font={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "36px",
+              fontWeight: 700,
+            }}
+            color="rgb(255, 255, 255)"
+            spread={5}
+            density={5}
+            animation={{
+              vaporizeDuration: 2.5,
+              fadeInDuration: 1.2,
+              waitDuration: 1,
+            }}
+            direction="left-to-right"
+            alignment="center"
+            tag={Tag.H1}
+          />
         </motion.div>
 
         <motion.p
