@@ -6,13 +6,20 @@
 
 ## Status
 
-🌱 **Planning** — figuring out what we're building.
+🌱 **Planning** — core direction decided, scoping the MVP.
 
-See [`PLANNING.md`](./PLANNING.md) for the working notes, ideas, and decisions.
+**The project:** an **AI-personalized learning platform** — learn about AI and
+use AI in one place, with an adaptive tutor that tailors lessons to your time
+and level, plus a hands-on AI sandbox.
+
+See [`PLANNING.md`](./PLANNING.md) for the full plan, decisions log, and open
+questions.
 
 ## Next steps
 
-- [ ] Decide what the project is
-- [ ] Define goals and scope
-- [ ] Choose the tech stack
-- [ ] Scaffold the initial structure
+- [x] Decide what the project is
+- [x] Define goals and scope (audience, pricing, jurisdiction, build approach)
+- [x] Choose the proposed tech stack (Next.js · Supabase · Stripe · Anthropic)
+- [ ] Confirm the 3 "proposed — need confirm" items in `PLANNING.md` §11
+- [ ] Build a cost model (sandbox + tailoring + video) to size credits/pricing
+- [ ] Scaffold the initial structure (Phase 1 MVP)
