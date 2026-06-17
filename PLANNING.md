@@ -3,7 +3,7 @@
 A living document for planning the new project. Nothing here is final — it's a
 place to capture ideas, narrow them down, and record decisions as we make them.
 
-_Started: 2026-06-16 · Last updated: 2026-06-16_
+_Started: 2026-06-16 · Last updated: 2026-06-17_
 
 ---
 
@@ -15,7 +15,12 @@ Tell it how much time you have and your level, and it builds you a lesson or
 module from a vetted content library — then you practice hands-on in a built-in
 AI sandbox.
 
-- **Working name:** TBD
+- **Working name:** **EchoVerse Academy** (fits the house naming system:
+  EchoVerse Collective = holding co, EchoVerse Dispatches = media/journalism,
+  EchoVerse Academy = this AI-learning product).
+  - Domain: exact `.com` is taken. Best available options —
+    **`echoverseacademy.ai`** (on-brand for AI) or **`echoverse.academy`**
+    (clean); `.io`/`.co`/`.org` also free. Purchase decision later.
 - **Elevator pitch:** "Learn AI by using AI — a personal AI tutor that tailors
   every lesson to your time and level, plus a hands-on playground, so you go
   from curious to capable without leaving the page."
@@ -69,20 +74,51 @@ learner sees, in *what order*, at *what depth/pace*, with tailored examples —
 but does **not** invent core teaching material on the fly (protects accuracy and
 your credibility). AI-generated extra practice/examples can wrap the vetted core.
 
-Structure:
+### Teaching philosophy (decided)
 
-- **Learning paths** — sequenced tracks (e.g. "AI Foundations" → "Using AI at
-  Work" → "Building with AI").
-- **Modules → lessons → exercises**, all tagged (topic, level, time, format) so
-  the tailoring engine can assemble a personalized path.
-- **Adaptive lesson assembly:** learner states time available + level → engine
-  selects/sequences vetted units to fit. ("I have 15 minutes" → a focused,
-  right-level lesson.)
+**Thin conceptual layer → heavy practical core → evolve toward full spectrum.**
+Give just enough high-level concept to use AI *wisely* (what it is, what it
+can't do, the judgment to not trust it blindly), then spend the bulk of the
+time on **practical, do-it-now skills**. As the catalog matures it grows into
+the full spectrum (eventually including building with AI).
+
+### Catalog structure (decided): core + a few tracks
+
+- **Core path — everyone starts here:** `AI at Work Essentials` (the MVP path,
+  below). Zero → genuinely productive at work.
+- **Tracks (post-MVP, branch off the core):** role/interest tracks that reuse
+  the same engine, e.g. `AI for Marketing & Content`, `AI for Ops & Admin`,
+  `AI for Research & Analysis`.
+- **Full-spectrum evolution (later):** an advanced `Building with AI` track
+  (prompting at depth → APIs → simple automations/agents) once the practical
+  core is proven.
+
+### MVP launch path: `AI at Work Essentials`
+
+Standard size — **8 modules, ~3–6 hrs total**. Module 1 is the thin conceptual
+layer; the rest is the practical core; the capstone ties it to the learner's
+real job. Each module follows the standard lesson format below.
+
+| # | Module | Type | Hands-on lab |
+| - | ------ | ---- | ------------ |
+| 1 | **What AI Actually Is (in 20 min)** — LLMs in plain language, capabilities vs limits, why it makes things up, "you stay the expert in the loop" | Conceptual (thin) | Spot what AI got right vs wrong in a sample answer |
+| 2 | **Talking to AI: Prompting Basics** — role/task/context/format, examples, iterate | Practical | Turn a vague prompt into a great one |
+| 3 | **Writing & Editing with AI** — drafts, tone, length, tightening your own writing | Practical | Draft + refine a real work email |
+| 4 | **Research & Summarizing** — summarize long docs, extract key points, Q&A a document | Practical | Summarize a report into 5 bullets |
+| 5 | **Thinking & Planning** — brainstorming, structuring ideas, plans, simple analysis | Practical | Plan a project / weigh options |
+| 6 | **Meetings & Communication** — agendas, notes → action items, follow-ups, briefs | Practical | Turn messy notes into clean action items |
+| 7 | **Working Safely & Well** — fact-checking output, what *not* to paste in (confidential data), bias, verifying | Judgment (concept + practice) | Catch the errors/risks in an AI answer |
+| 8 | **Capstone: Your AI Workflow** — build one repeatable workflow for a real task in your own job | Practical project | Ship a personal workflow |
+
+- **Adaptive lesson assembly:** every module/lesson/exercise is tagged (topic,
+  level, time, format) so the engine selects and sequences vetted units to the
+  learner's stated time + level. ("I have 15 minutes" → a focused, right-level
+  slice of the path.)
 - **Lesson format:** short readings + visuals (+ AI-generated video for hero
-  concepts), then a hands-on exercise in the sandbox, then a quick check/quiz.
-- **Hands-on labs:** real tasks using AI (e.g. "write an effective prompt",
-  "summarize a document", "build a mini chatbot").
-- **Assessment:** quizzes, practical challenges, project at the end of a path.
+  concepts), then a hands-on lab in the sandbox, then a quick check/quiz.
+- **Hero-video candidates (1–3 at launch):** Modules **1** (What AI Is) and
+  **2** (Prompting) — highest-impact, best "wow"; optionally **7** (Safety).
+- **Assessment:** per-module quizzes/checks + the Module 8 capstone project.
 - **AI-generated video (decided — a few hero videos at launch):** Synthesia-style
   avatar videos for the highest-impact concepts only at launch; text/interactive
   for the rest. Expand video coverage as a fast-follow.
@@ -255,8 +291,8 @@ instrument conversion and retention from day one.
 
 **Phase 1 — MVP (conversion-focused):**
 - Auth (with 18+ age gate) + profile.
-- **One complete learning path** (a few modules) in the vetted library, tagged
-  for tailoring.
+- **One complete learning path — `AI at Work Essentials` (8 modules)** in the
+  vetted library, tagged for tailoring (see §4).
 - **Adaptive tailoring v1** — assemble a lesson from the library by time + level.
 - **AI sandbox** — the hands-on "use AI" core (platform credits).
 - **1–3 hero AI-generated videos** for marquee concepts.
@@ -276,7 +312,8 @@ more integrations.
 
 **Resolved across planning rounds** (see §13): product concept & differentiators,
 adaptive model, AI video scope, content production, build approach, jurisdiction,
-minimum age, price point, success metric.
+minimum age, price point, success metric, **product name/brand**, **content
+architecture & MVP path**.
 
 **Proposed — need your confirm (I picked sensible defaults so you're not blocked):**
 
@@ -287,13 +324,12 @@ minimum age, price point, success metric.
 
 **Still genuinely open:**
 
-4. **Working name / brand.**
-5. **Credit allowance sizing vs AI cost** — needs a cost model (sandbox +
+4. **Credit allowance sizing vs AI cost** — needs a cost model (sandbox +
    tailoring + video) before final numbers (§6, §9).
-6. **Budget & timeline** — target launch date for the MVP?
-7. **Content review/refresh process** — who accuracy-checks vetted content and
+5. **Budget & timeline** — target launch date for the MVP?
+6. **Content review/refresh process** — who accuracy-checks vetted content and
    how often (§4)?
-8. **Charitable mission mechanics** — how the charity/education angle shows up
+7. **Charitable mission mechanics** — how the charity/education angle shows up
    (pricing discounts, a pledge, a non-profit arm?).
 
 ## 12. Risks
@@ -311,6 +347,9 @@ _Newest at the top._
 
 | Date       | Decision                                                       |
 | ---------- | -------------------------------------------------------------- |
+| 2026-06-17 | MVP launch path = **`AI at Work Essentials`** (8 modules, standard size); hero videos on modules 1–2 (±7) |
+| 2026-06-17 | Catalog = **core path + a few tracks**; teach **thin concept → heavy practical → evolve to full spectrum** |
+| 2026-06-17 | Product name = **EchoVerse Academy** (fits house naming system); domain `.com` taken, `.ai`/`.academy` preferred |
 | 2026-06-16 | Success metric = **paying subscribers** (conversion + retention) |
 | 2026-06-16 | Minimum age = **18+** (avoids children's-data regimes)         |
 | 2026-06-16 | Jurisdiction = **global from the start**, privacy-first/GDPR-grade |
