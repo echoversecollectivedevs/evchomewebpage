@@ -63,7 +63,7 @@ remain reachable via the free trial and can become a secondary segment later.
 - Interactive, in-app AI practice (not just videos).
 - AI-generated hero videos for a premium, modern feel.
 - Guided, safe environment.
-- Privacy-first positioning (see §7) — "your data is yours, never used to train
+- Privacy-first positioning (see §8) — "your data is yours, never used to train
   models" is a genuine selling point, reinforced by global/GDPR-grade handling.
 
 ## 4. Course / curriculum design
@@ -139,7 +139,7 @@ real job. Each module follows the standard lesson format below.
 - Quizzes / knowledge checks.
 - Progress dashboard (completion %, streaks).
 - Billing & subscription management.
-- Account & data controls (export, delete — see §7).
+- Account & data controls (export, delete — see §8).
 
 **Later / nice-to-have:**
 
@@ -180,7 +180,44 @@ This is what makes the product special — and the main variable cost.
 - **Safety:** content moderation / acceptable-use guardrails on what users can
   generate (people *will* test limits).
 
-## 7. Data, privacy & legal
+## 7. Learner experience (delivery)
+
+_How a learner actually moves through the product day to day. All choices below
+decided this round._
+
+- **Onboarding — conversational placement.** A short AI-led interview (3–4 Qs:
+  goal/role, current level, usual time, how you like to learn) that
+  **immediately assembles your first lesson** — the adaptive "wow" up front.
+  Under ~60 seconds, skippable with sensible defaults.
+- **Home — hybrid "Continue" + path map.** Leads with a prominent
+  **"Continue — your next 15 minutes"** card, alongside a visible **path map**
+  (the 8 modules with progress, done/next). Tutor-led by default, browsable for
+  control.
+- **Time-box — default + per-session override.** Remembers your usual default
+  but offers an easy **"Today I have ___"** override each session
+  (15 / 30 / 60 / custom). The engine assembles a right-sized slice from the
+  tagged vetted units — a lesson, part of one, or lesson + lab.
+
+**The lesson loop (learn → do → check):**
+
+1. **Learn** — short reading + visuals (+ hero video for marquee concepts).
+2. **Do** — hands-on lab in the **embedded sandbox**: a real task with framing
+   and the live AI. The heart of every lesson (always present — the
+   differentiator).
+3. **Check** — quick quiz / feedback on the lab output; instant.
+4. **Progress + next** — mark complete, update progress, tee up the next slice.
+
+- **Sandbox — two modes.** (1) *Guided*, embedded in labs with task framing /
+  starter prompts; (2) *Free-roam playground* to experiment anytime, with
+  optional "try this" suggestions tied to what you've learned. Saved prompts /
+  history, privacy-aware (see §8).
+- **Adaptivity in practice.** Beyond time-boxing: "explain simpler / go deeper"
+  on any concept, examples tuned to level/role, and remediation surfaced when
+  checks reveal gaps.
+- **Progress & motivation.** Resume-where-you-left-off, completion % + streaks,
+  gentle nudges, capstone project at Module 8.
+
+## 8. Data, privacy & legal
 
 > ⚠️ **Not legal advice.** The retention/compliance specifics below need review
 > by a qualified lawyer before launch. This section frames the decisions.
@@ -236,7 +273,7 @@ period. Document this clearly in the privacy policy so the promise is honest.
   Policy, Cookie Policy/consent. (Global reach = these must hold up across
   jurisdictions — get them reviewed.)
 
-## 8. Tech stack (proposed — TBD)
+## 9. Tech stack (proposed — TBD)
 
 A modern, privacy-friendly default that matches the needs above:
 
@@ -253,7 +290,7 @@ A modern, privacy-friendly default that matches the needs above:
 
 _These are proposals to validate, not commitments._
 
-## 9. Pricing framework
+## 10. Pricing framework
 
 Designed around the fact that AI usage costs real money per use, and optimized
 for the **"paying subscribers" success metric** (conversion over raw reach).
@@ -274,11 +311,11 @@ for the **"paying subscribers" success metric** (conversion over raw reach).
 - **Open questions:** exact allowance sizing vs cost, annual price, whether to
   add a higher "Pro" tier, B2B/team pricing later.
 
-## 10. MVP scope & phased roadmap
+## 11. MVP scope & phased roadmap
 
 **Build approach (decided): you + AI assistant (Claude Code).** Lowest cost, you
 stay in control. Implication: favour a **managed, batteries-included stack**
-(see §8 — Next.js + Supabase + Stripe + Anthropic) so a solo+AI build avoids
+(see §9 — Next.js + Supabase + Stripe + Anthropic) so a solo+AI build avoids
 undifferentiated infrastructure work. Lean on hosted services for auth, DB,
 payments, and email.
 
@@ -308,31 +345,31 @@ certificates, richer credits/allowance tuning, polish.
 **Phase 3 — Scale:** community, teams/B2B, admin CMS, BYOK for power users,
 more integrations.
 
-## 11. What's still missing / open questions
+## 12. What's still missing / open questions
 
-**Resolved across planning rounds** (see §13): product concept & differentiators,
+**Resolved across planning rounds** (see §14): product concept & differentiators,
 adaptive model, AI video scope, content production, build approach, jurisdiction,
 minimum age, price point, success metric, **product name/brand**, **content
-architecture & MVP path**.
+architecture & MVP path**, **learner experience / delivery**.
 
 **Proposed — need your confirm (I picked sensible defaults so you're not blocked):**
 
 1. **Primary target audience = Professionals upskilling** (§2).
 2. **AI delivery model = (A) platform-provided credits** (§6).
 3. **Trial = time-limited full trial (7–14 days)** rather than permanent free
-   tier (§9).
+   tier (§10).
 
 **Still genuinely open:**
 
 4. **Credit allowance sizing vs AI cost** — needs a cost model (sandbox +
-   tailoring + video) before final numbers (§6, §9).
+   tailoring + video) before final numbers (§6, §10).
 5. **Budget & timeline** — target launch date for the MVP?
 6. **Content review/refresh process** — who accuracy-checks vetted content and
    how often (§4)?
 7. **Charitable mission mechanics** — how the charity/education angle shows up
    (pricing discounts, a pledge, a non-profit arm?).
 
-## 12. Risks
+## 13. Risks
 
 - **AI inference cost** outrunning revenue — mitigate with credits/caps/cheaper
   models.
@@ -341,12 +378,13 @@ architecture & MVP path**.
 - **Misuse** of the AI sandbox — needs moderation/guardrails.
 - **Legal/compliance** — get the privacy & retention model reviewed properly.
 
-## 13. Decisions log
+## 14. Decisions log
 
 _Newest at the top._
 
 | Date       | Decision                                                       |
 | ---------- | -------------------------------------------------------------- |
+| 2026-06-17 | Delivery UX = **hybrid home (Continue + path map)**, **conversational onboarding/placement**, **time-box with per-session override**; lesson loop learn→do→check; sandbox guided + free-roam |
 | 2026-06-17 | MVP launch path = **`AI at Work Essentials`** (8 modules, standard size); hero videos on modules 1–2 (±7) |
 | 2026-06-17 | Catalog = **core path + a few tracks**; teach **thin concept → heavy practical → evolve to full spectrum** |
 | 2026-06-17 | Product name = **EchoVerse Academy** (fits house naming system); domain `.com` taken, `.ai`/`.academy` preferred |
@@ -362,7 +400,7 @@ _Newest at the top._
 | 2026-06-16 | Concept set: web app to **learn + use AI** in one place        |
 | 2026-06-16 | Cleared the old EVC homepage and repurposed this repo          |
 
-## 14. Ideas parking lot
+## 15. Ideas parking lot
 
 - Personal "prompt library" users build as they learn.
 - AI tutor that adapts to the learner's level.
