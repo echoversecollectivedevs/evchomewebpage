@@ -12,8 +12,9 @@ _Started: 2026-06-16 · Last updated: 2026-06-17_
 An **AI-personalized learning platform**: people learn about AI and actually use
 AI in the same place, and **the AI tailors the learning itself** to each person.
 Tell it how much time you have and your level, and it builds you a lesson or
-module from a vetted content library — then you practice hands-on in a built-in
-AI sandbox.
+module from a vetted content library — then it **coaches you hands-on in your
+own Claude/ChatGPT** (bridged by a companion extension), reviewing what your AI
+returns and guiding your next move.
 
 - **Working name:** **EchoVerse Academy** (fits the house naming system:
   EchoVerse Collective = holding co, EchoVerse Dispatches = media/journalism,
@@ -22,8 +23,9 @@ AI sandbox.
     **`echoverseacademy.ai`** (on-brand for AI) or **`echoverse.academy`**
     (clean); `.io`/`.co`/`.org` also free. Purchase decision later.
 - **Elevator pitch:** "Learn AI by using AI — a personal AI tutor that tailors
-  every lesson to your time and level, plus a hands-on playground, so you go
-  from curious to capable without leaving the page."
+  every lesson to your time and level and coaches you live inside your own
+  Claude or ChatGPT, so you go from curious to capable on the tools you'll
+  actually keep using."
 - **Problem it solves:** Most people are curious about AI but find it abstract,
   intimidating, or one-size-fits-all. Existing courses are passive (fixed video
   lectures) or assume technical skills. This **adapts to the individual** and
@@ -31,8 +33,8 @@ AI sandbox.
 - **The core differentiators:**
   1. **Adaptive tutor** — AI tailors sequence, pace, examples and difficulty
      from a quality-controlled library (personalization *with* accuracy).
-  2. The **learn → do** loop — lessons paired with live, interactive AI
-     exercises inside the app.
+  2. The **learn → do** loop — lessons paired with live, coached practice in the
+     learner's own AI tool (bridged by a companion extension), not just videos.
   3. **AI-generated video** for key concepts (Synthesia-style avatars) for a
      premium, modern feel without a heavy video pipeline.
 
@@ -60,7 +62,8 @@ remain reachable via the free trial and can become a secondary segment later.
 
 - **Adaptive AI tutor** — lessons tailored to your time and level from a vetted
   library (the headline differentiator).
-- Interactive, in-app AI practice (not just videos).
+- Coached, hands-on practice **in the learner's own AI tool** (not just videos);
+  skills transfer to what they'll actually keep using.
 - AI-generated hero videos for a premium, modern feel.
 - Guided, safe environment.
 - Privacy-first positioning (see §8) — "your data is yours, never used to train
@@ -82,6 +85,20 @@ can't do, the judgment to not trust it blindly), then spend the bulk of the
 time on **practical, do-it-now skills**. As the catalog matures it grows into
 the full spectrum (eventually including building with AI).
 
+### Stages of learning (the backbone for placement + skip logic)
+
+An explicit maturity ladder so the engine knows *where someone is* and *what's
+next*. Placement (§7) maps the learner to a stage and **drops them in at the
+right rung** — skipping what's behind them, routing back for gaps.
+
+| Stage | Where they are | What they need next |
+| - | --- | --- |
+| **0 — Not set up** | No tool, no account | *Get Set Up* (choose tool → install → configure → first prompt) |
+| **1 — Set up but stuck** | Has access, barely/poorly uses it | Prompting basics + **Setup Review** to improve config |
+| **2 — Casual user** | Simple ad-hoc use | Structured prompting, apply to real work tasks |
+| **3 — Practical user** | Uses AI at work regularly | Workflows, judgment/safety, consistent quality |
+| **4 — Power user** | Repeatable workflows | (future) *Building with AI* track |
+
 ### Catalog structure (decided): core + a few tracks
 
 - **Core path — everyone starts here:** `AI at Work Essentials` (the MVP path,
@@ -95,12 +112,14 @@ the full spectrum (eventually including building with AI).
 
 ### MVP launch path: `AI at Work Essentials`
 
-Standard size — **8 modules, ~3–6 hrs total**. Module 1 is the thin conceptual
-layer; the rest is the practical core; the capstone ties it to the learner's
-real job. Each module follows the standard lesson format below.
+Standard size — **8 core modules, ~3–6 hrs total**, preceded by an adaptive
+**Module 0 — Get Set Up** (skippable/condensed depending on stage). Module 1 is
+the thin conceptual layer; the rest is the practical core; the capstone ties it
+to the learner's real job. Each module follows the standard lesson format below.
 
 | # | Module | Type | Hands-on lab |
 | - | ------ | ---- | ------------ |
+| 0 | **Get Set Up** — pick your AI (Claude/ChatGPT), install on a personal device, configure it well, first prompt | Setup (adaptive — skip/condense by stage) | Install + configure + send your first real prompt |
 | 1 | **What AI Actually Is (in 20 min)** — LLMs in plain language, capabilities vs limits, why it makes things up, "you stay the expert in the loop" | Conceptual (thin) | Spot what AI got right vs wrong in a sample answer |
 | 2 | **Talking to AI: Prompting Basics** — role/task/context/format, examples, iterate | Practical | Turn a vague prompt into a great one |
 | 3 | **Writing & Editing with AI** — drafts, tone, length, tightening your own writing | Practical | Draft + refine a real work email |
@@ -115,7 +134,9 @@ real job. Each module follows the standard lesson format below.
   learner's stated time + level. ("I have 15 minutes" → a focused, right-level
   slice of the path.)
 - **Lesson format:** short readings + visuals (+ AI-generated video for hero
-  concepts), then a hands-on lab in the sandbox, then a quick check/quiz.
+  concepts), then a hands-on lab the learner runs **in their own AI tool**
+  (bridged by the companion extension — see §6), then a quick check/quiz where
+  the coach reviews the result.
 - **Hero-video candidates (1–3 at launch):** Modules **1** (What AI Is) and
   **2** (Prompting) — highest-impact, best "wow"; optionally **7** (Safety).
 - **Assessment:** per-module quizzes/checks + the Module 8 capstone project.
@@ -129,13 +150,54 @@ real job. Each module follows the standard lesson format below.
   lightweight **review process** (accuracy check before content goes live) and a
   **refresh cadence** since AI moves fast.
 
+### Module 0 — Get Set Up (decided)
+
+A practical entry stage that gets a learner from nothing to a working AI tool on
+their own device:
+
+1. **Pick your AI** — opinionated guidance across **Claude + ChatGPT** (the two
+   covered tools), incl. free vs paid tiers.
+2. **Personal device + personal account** — *why* (see device stance below), with
+   a corporate-restriction warning (installs/networks may be blocked; never paste
+   work-confidential data — ties to §8).
+3. **Install & sign in** — desktop + mobile + web.
+4. **Configure it well** — custom instructions / profile / memory so the tool
+   knows who you are. ← where "big it out" lives.
+5. **First contact** — first real prompt + a "you're ready" check.
+
+- **Tools covered (decided): Claude + ChatGPT.** Opinionated default with the
+  other as the main alternative; setup, config, and example prompts authored for
+  both. (Gemini/Copilot later if demand warrants.)
+- **Device stance (decided): personal-first.** Designed for personal device +
+  personal account; corporate machines/networks/policies may block installs or
+  the extension, so we warn clearly and never assume a work environment.
+
+### Adaptive entry: skip / review / improve (decided)
+
+Placement asks *"Got an AI tool set up already?"* and routes accordingly:
+
+- **No** → full Module 0 (Get Set Up).
+- **Sort of** → **Setup Review**: learner pastes their current custom
+  instructions / describes their setup → the coach critiques it against a rubric
+  and rewrites it stronger, then continues to prompting.
+- **Yes, confident** → skip setup, go to prompting/work modules; Setup Review
+  offered as optional.
+
+> **Setup Review is also a standalone, recurring tool** ("tune my AI"), not just
+> onboarding — it adds value even to people who *think* they're set up, because
+> most people's config is weak. So "I've done that" never dead-ends a learner.
+
 ## 5. Platform — key features
 
 **MVP candidates:**
 
 - User accounts (sign up / log in) + profile.
 - Course player (lessons, progress tracking, resume where you left off).
-- **Interactive AI sandbox / playground** — the "use AI" core (see §6).
+- **Coaching workbench + companion browser extension** — the "use AI" core:
+  hands out ready-to-use prompts, bridges them into the learner's own
+  Claude/ChatGPT, and pulls results back for coaching (see §6).
+- **Setup Review tool** — paste your AI config; the coach rewrites it stronger
+  (onboarding + standalone "tune my AI"; see §4).
 - Quizzes / knowledge checks.
 - Progress dashboard (completion %, streaks).
 - Billing & subscription management.
@@ -153,32 +215,41 @@ real job. Each module follows the standard lesson format below.
 
 ## 6. The "use AI" engine (core architecture)
 
-This is what makes the product special — and the main variable cost.
+This is what makes the product special — and a key cost driver.
 
-- **What powers it:** integrate a top LLM API. Recommended default: **Anthropic
-  Claude** (latest models, e.g. Claude Opus / Sonnet / Haiku) — strong, and the
-  API does **not** train on your inputs/outputs by default, which aligns with
-  the privacy promise. Final choice TBD.
-- **Delivery model — key decision:**
-  - **(A) Platform-provided AI** — we hold the API key, users consume "credits."
-    Smoothest UX; we bear inference cost → justifies usage-based pricing.
-  - **(B) Bring-your-own-key (BYOK)** — users plug in their own API key. No
-    inference cost to us, but worse UX and a barrier for beginners.
-  - **(C) Hybrid** — platform credits for beginners, BYOK option for power users.
-  - ➡️ **Proposed (confirm): (A) platform-provided credits.** Smoothest UX,
-    keeps the premium feel that justifies £20+/mo, and the included allowance
-    can be sized to cover typical inference cost. Revisit (C) for power users
-    later.
+**Practice model (decided): coach + your own tool, bridged by a companion
+extension.** Learners do **not** practice in an AI sandbox we pay for. Instead
+the platform *coaches* — it hands out ready-to-use prompts, the learner runs
+them in **their own Claude/ChatGPT**, and brings the result back for review and
+next steps. Skills transfer to the tool they'll actually keep using, and the
+heavy practice inference runs on **their** account, not our bill.
 
-> **Note — two AI cost centres now, not one.** Inference cost comes from
-> *both* (1) the user-facing sandbox and (2) the adaptive tailoring engine
-> (LLM calls that assemble/personalize lessons). Plus a separate
-> **AI-video generation** cost (Synthesia-style) for hero lessons — largely a
-> one-off production cost per video rather than per-user. Budget all three.
-- **Cost control:** rate limits, per-tier credit caps, cheaper models for simple
-  tasks, caching where possible.
-- **Safety:** content moderation / acceptable-use guardrails on what users can
-  generate (people *will* test limits).
+- **Companion browser extension (decided — day one).** Bridges the loop: injects
+  the coach's prompt into the learner's ChatGPT/Claude tab and pulls the answer
+  back automatically, so there's no manual copy-paste. **Fallback:** one-click
+  copy + "Open in Claude/ChatGPT" deep links + a "paste your result" box (also
+  the learning checkpoint). ⚠️ **Caveats:** extensions are **desktop browsers
+  only** (Chrome/Edge/Firefox) and **break when the target UI changes**, so they
+  need active maintenance; **mobile needs a separate plan** (see §12).
+- **What our platform AI does (our inference cost):** (1) the **adaptive
+  tailoring/assembly** engine (selecting/sequencing lessons), (2) **coaching** —
+  reviewing the learner's pasted-back results and guiding next steps, (3) the
+  **Setup Review** tool. We hold the key for *these*. **Not** user practice
+  inference — that's on the learner's own tool/account.
+- **Model provider:** **Anthropic Claude** default for our coaching/tutoring
+  calls — strong, and the API does **not** train on inputs/outputs by default,
+  aligning with the privacy promise (§8). Final choice TBD.
+- **Cost implication:** materially lower than the original embedded-sandbox plan,
+  since we no longer fund user practice. This **reframes pricing** — the £20/mo
+  is justified by the adaptive coach + curriculum + setup tooling, not by us
+  footing the learner's AI bill (see §10). A separate **AI-video generation**
+  cost (Synthesia-style) for hero lessons remains — a one-off production cost per
+  video, not per-user.
+- **Cost control:** cheaper models for simple coaching tasks, caching, sensible
+  caps on coaching calls per tier.
+- **Safety:** acceptable-use guardrails; because practice happens in the
+  learner's own tool, their provider's safety layer also applies. Our coaching
+  output still needs accuracy/guardrail care.
 
 ## 7. Learner experience (delivery)
 
@@ -201,16 +272,17 @@ decided this round._
 **The lesson loop (learn → do → check):**
 
 1. **Learn** — short reading + visuals (+ hero video for marquee concepts).
-2. **Do** — hands-on lab in the **embedded sandbox**: a real task with framing
-   and the live AI. The heart of every lesson (always present — the
-   differentiator).
-3. **Check** — quick quiz / feedback on the lab output; instant.
+2. **Do** — the coach hands you a ready-to-use prompt; the **companion
+   extension** runs it in **your own Claude/ChatGPT** and pulls the result back
+   (copy/deep-link fallback). The heart of every lesson (see §6).
+3. **Check** — the coach reviews your result + a quick quiz; instant feedback and
+   a suggested next move.
 4. **Progress + next** — mark complete, update progress, tee up the next slice.
 
-- **Sandbox — two modes.** (1) *Guided*, embedded in labs with task framing /
-  starter prompts; (2) *Free-roam playground* to experiment anytime, with
+- **Two practice modes.** (1) *Guided*, inside labs with coach-provided prompts
+  and review; (2) *Free-roam* — experiment in your own tool anytime, with
   optional "try this" suggestions tied to what you've learned. Saved prompts /
-  history, privacy-aware (see §8).
+  history on our side, privacy-aware (see §8).
 - **Adaptivity in practice.** Beyond time-boxing: "explain simpler / go deeper"
   on any concept, examples tuned to level/role, and remediation surfaced when
   checks reveal gaps.
@@ -238,7 +310,7 @@ categories:
 
 | Data category | Examples | Default retention | User can delete? |
 | --- | --- | --- | --- |
-| **Session / interaction data** | prompts, AI responses, sandbox activity | Deletable at end of session (opt-in); else tied to account | ✅ Yes, anytime |
+| **Session / interaction data** | prompts, coaching responses, results you bring back | Deletable at end of session (opt-in); else tied to account | ✅ Yes, anytime |
 | **Learning data** | progress, quiz scores, certificates | Kept while account active | ✅ On account deletion |
 | **Account / profile data** | name, email, login | Until deletion or 6-month inactivity auto-delete | ✅ Yes |
 | **Billing / financial records** | invoices, payments, tax records | **Must keep ~6–7 yrs** (legal obligation, varies by country) | ❌ Retained even after account deletion |
@@ -281,7 +353,10 @@ A modern, privacy-friendly default that matches the needs above:
 - **Hosting:** Vercel (fast to ship, easy preview deploys).
 - **Backend + DB + Auth:** Supabase (Postgres). Row-Level Security gives strong
   per-user data isolation and makes targeted deletion straightforward.
-- **AI:** Anthropic Claude API (sandbox + adaptive tailoring engine).
+- **AI:** Anthropic Claude API (coaching + adaptive tailoring engine; *not* user
+  practice — that runs in the learner's own tool, see §6).
+- **Companion extension:** browser extension (Chrome/Edge/Firefox) that bridges
+  prompts/results to the learner's own Claude/ChatGPT.
 - **AI video:** Synthesia (or similar) for hero-concept avatar videos — produced
   ahead of time and served as static video, so no per-user generation cost.
 - **Payments:** Stripe (subscriptions + usage-based billing supported natively;
@@ -296,17 +371,19 @@ Designed around the fact that AI usage costs real money per use, and optimized
 for the **"paying subscribers" success metric** (conversion over raw reach).
 
 - **Main paid plan (decided): £20+/month.** Premium positioning — the adaptive
-  tailoring + sandbox + hero videos must *feel* worth it. Annual discount for
-  retention.
+  **coach** + curriculum + setup tooling + hero videos must *feel* worth it
+  (value is the coaching, *not* us paying for the learner's AI — see §6). Annual
+  discount for retention.
 - **Trial / free access (proposed — confirm; you were undecided):**
   **time-limited full trial (7–14 days)** of the complete experience, rather
   than a permanent free tier. For a premium, conversion-focused product a full
   trial showcases the adaptive "wow" and converts better; a permanent free tier
   would carry ongoing inference cost with weaker conversion. Optionally pair
   with a tiny always-free taster (1–2 lessons) for top-of-funnel.
-- **Included AI allowance:** each paid month includes a credit allowance sized
-  to cover typical sandbox + tailoring usage; heavy users can buy more. Maps
-  spend to inference cost and protects margin.
+- **Included AI allowance:** the learner brings their own AI tool for practice,
+  so our inference cost is just **coaching + tailoring**. Each plan includes a
+  fair-use allowance of coaching calls sized to that (much smaller cost base than
+  the old sandbox model); heavy users can buy more.
 - **Discounts:** students / education (supports the charitable mission).
 - **Open questions:** exact allowance sizing vs cost, annual price, whether to
   add a higher "Pro" tier, B2B/team pricing later.
@@ -323,15 +400,21 @@ payments, and email.
 conversion + retained subscribers). Every phase should ladder up to this;
 instrument conversion and retention from day one.
 
-**Phase 0 — Planning & validation** (now): confirm the two proposed items
-(primary audience, AI delivery model), validate willingness to pay at £20+/mo.
+**Phase 0 — Planning & validation** (now): confirm the remaining proposed item
+(primary audience), validate willingness to pay at £20+/mo.
 
 **Phase 1 — MVP (conversion-focused):**
 - Auth (with 18+ age gate) + profile.
-- **One complete learning path — `AI at Work Essentials` (8 modules)** in the
-  vetted library, tagged for tailoring (see §4).
+- **Conversational placement** + the stages ladder (drop learners in at the right
+  rung; skip/condense Get Set Up by stage — see §4, §7).
+- **`AI at Work Essentials`** — **Module 0 (Get Set Up)** + 8 core modules in the
+  vetted library, tagged for tailoring (see §4). Setup content for Claude +
+  ChatGPT, personal-device-first.
 - **Adaptive tailoring v1** — assemble a lesson from the library by time + level.
-- **AI sandbox** — the hands-on "use AI" core (platform credits).
+- **Coaching workbench + companion browser extension** — hands out prompts,
+  bridges them into the learner's own Claude/ChatGPT, pulls results back for
+  coaching (copy/deep-link fallback; see §6).
+- **Setup Review tool** — paste config → coach rewrites it stronger.
 - **1–3 hero AI-generated videos** for marquee concepts.
 - Progress tracking; quizzes/checks.
 - **Billing:** time-limited full trial → £20+/mo paid plan (Stripe).
@@ -350,32 +433,46 @@ more integrations.
 **Resolved across planning rounds** (see §14): product concept & differentiators,
 adaptive model, AI video scope, content production, build approach, jurisdiction,
 minimum age, price point, success metric, **product name/brand**, **content
-architecture & MVP path**, **learner experience / delivery**.
+architecture & MVP path**, **learner experience / delivery**, **practice model
+(coach + own tool + companion extension)**, **stages ladder & Get Set Up**,
+**tools covered (Claude + ChatGPT)**, **device stance (personal-first)**.
 
 **Proposed — need your confirm (I picked sensible defaults so you're not blocked):**
 
 1. **Primary target audience = Professionals upskilling** (§2).
-2. **AI delivery model = (A) platform-provided credits** (§6).
-3. **Trial = time-limited full trial (7–14 days)** rather than permanent free
+2. **Trial = time-limited full trial (7–14 days)** rather than permanent free
    tier (§10).
 
 **Still genuinely open:**
 
-4. **Credit allowance sizing vs AI cost** — needs a cost model (sandbox +
-   tailoring + video) before final numbers (§6, §10).
+3. **Mobile experience** — the companion extension is desktop-browser only, so
+   how does practice work on phones/tablets? (copy + deep-link fallback only? a
+   companion app later? desktop-first for MVP and say so?) (§6)
+4. **Coaching-cost model** — rough per-user cost of coaching + tailoring (much
+   smaller now that practice is BYO-tool) to size the fair-use allowance and
+   confirm margin (§6, §10).
 5. **Budget & timeline** — target launch date for the MVP?
 6. **Content review/refresh process** — who accuracy-checks vetted content and
-   how often (§4)?
+   how often, incl. keeping Claude/ChatGPT setup steps current (§4)?
 7. **Charitable mission mechanics** — how the charity/education angle shows up
    (pricing discounts, a pledge, a non-profit arm?).
+8. **Extension maintenance** — process for catching/fixing breakage when
+   ChatGPT/Claude change their UI (§6, §13).
 
 ## 13. Risks
 
-- **AI inference cost** outrunning revenue — mitigate with credits/caps/cheaper
-  models.
-- **Crowded market** — differentiate via the hands-on loop + privacy.
+- **AI coaching cost** outrunning revenue — mitigate with caps/cheaper models/
+  caching (lower risk now practice is BYO-tool).
+- **Companion-extension fragility** — breaks when ChatGPT/Claude change their UI;
+  needs active maintenance + a fast fallback to copy/deep-link.
+- **Desktop-only bridge** — no extension on mobile; risks excluding phone-first
+  learners until a mobile plan exists (§12).
+- **Dependence on third-party tools** — Claude/ChatGPT could change pricing,
+  access, or terms; keep the curriculum tool-agnostic where possible.
+- **Crowded market** — differentiate via the coached learn↔do loop + privacy.
 - **Content staleness** — AI changes fast; budget for ongoing updates.
-- **Misuse** of the AI sandbox — needs moderation/guardrails.
+- **Misuse** — acceptable-use guardrails; note practice runs in the user's own
+  tool under its provider's safety layer.
 - **Legal/compliance** — get the privacy & retention model reviewed properly.
 
 ## 14. Decisions log
@@ -384,7 +481,9 @@ _Newest at the top._
 
 | Date       | Decision                                                       |
 | ---------- | -------------------------------------------------------------- |
-| 2026-06-17 | Delivery UX = **hybrid home (Continue + path map)**, **conversational onboarding/placement**, **time-box with per-session override**; lesson loop learn→do→check; sandbox guided + free-roam |
+| 2026-06-17 | Practice model = **coach + learner's own Claude/ChatGPT, bridged by a companion browser extension** (day one; copy/deep-link fallback). Our AI = coaching + tailoring only → lowers cost, reframes pricing. Supersedes embedded-sandbox/credits plan |
+| 2026-06-17 | Content = **stages-of-learning ladder** + adaptive **Module 0 (Get Set Up)** with skip/Setup-Review entry; tools covered = **Claude + ChatGPT**; **personal-device-first** |
+| 2026-06-17 | Delivery UX = **hybrid home (Continue + path map)**, **conversational onboarding/placement**, **time-box with per-session override**; lesson loop learn→do→check; guided + free-roam practice |
 | 2026-06-17 | MVP launch path = **`AI at Work Essentials`** (8 modules, standard size); hero videos on modules 1–2 (±7) |
 | 2026-06-17 | Catalog = **core path + a few tracks**; teach **thin concept → heavy practical → evolve to full spectrum** |
 | 2026-06-17 | Product name = **EchoVerse Academy** (fits house naming system); domain `.com` taken, `.ai`/`.academy` preferred |
