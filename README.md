@@ -6,14 +6,20 @@
 
 ## Status
 
-🌱 **Planning** — core direction decided, scoping the MVP.
+🌱 **Planning** — core direction decided, v1 output model + first 10 use cases
+defined, scoping the build.
 
-**The project:** an **AI-personalized learning platform** — learn about AI and
-use AI in one place, with an adaptive tutor that tailors lessons to your time
-and level, plus a hands-on AI sandbox.
+**The project:** **EchoVerse Academy** — an AI-personalized learning platform to
+learn about AI and use AI in one place, with an adaptive tutor that tailors
+lessons to your time and level and coaches you in your own Claude/ChatGPT.
+**Shipping first (v1):** a lite **AI-setup + use-case generator** that gives you a
+personalized AI profile + ready-to-use "Project Packs."
 
-See [`PLANNING.md`](./PLANNING.md) for the full plan, decisions log, and open
-questions.
+**Docs:**
+- 📘 **[`PROJECT-REFERENCE.md`](./PROJECT-REFERENCE.md) — read-me-first.** The
+  master reference: vision + v1 + all decisions + next steps in one place.
+- [`PLANNING.md`](./PLANNING.md) — the full platform vision (the north star).
+- [`V1-SPEC.md`](./V1-SPEC.md) — the v1 spec (what we build first).
 
 ## Next steps
 
