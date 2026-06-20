@@ -5,6 +5,12 @@ place to capture ideas, narrow them down, and record decisions as we make them.
 
 _Started: 2026-06-16 · Last updated: 2026-06-17_
 
+> **📌 v1 is the lite tool — see [`V1-SPEC.md`](./V1-SPEC.md).** We ship a light,
+> single-session **personalized AI-setup + use-case generator** first (free,
+> EchoVerse sign-up gated). This document describes the **fuller vision** (the
+> adaptive coaching platform) that v1 grows into. Read this for the north star;
+> read `V1-SPEC.md` for what we build now.
+
 ---
 
 ## 1. The idea
@@ -400,10 +406,20 @@ payments, and email.
 conversion + retained subscribers). Every phase should ladder up to this;
 instrument conversion and retention from day one.
 
-**Phase 0 — Planning & validation** (now): confirm the remaining proposed item
-(primary audience), validate willingness to pay at £20+/mo.
+> **The roadmap is now phased around v1 = the lite tool.** Full spec in
+> [`V1-SPEC.md`](./V1-SPEC.md); the platform phases below are the vision v1 leads
+> to.
 
-**Phase 1 — MVP (conversion-focused):**
+**Phase 0 — Planning & validation** (now): confirm primary audience; scope the
+v1 role→use-case library and launch timing.
+
+**Phase 1 — v1: the lite tool (ship first).** Personalized **AI-setup + use-case
+generator** — avatar/text intake (both allow pasting current config), the
+"don't make it worse" quality gate, generate a profile + role-based use-case
+ideas, EchoVerse sign-up to save. Free, signup-gated. **Full detail in
+[`V1-SPEC.md`](./V1-SPEC.md).** Goal: validate demand + build the user base.
+
+**Phase 2 — the platform MVP (conversion-focused):**
 - Auth (with 18+ age gate) + profile.
 - **Conversational placement** + the stages ladder (drop learners in at the right
   rung; skip/condense Get Set Up by stage — see §4, §7).
@@ -414,7 +430,8 @@ instrument conversion and retention from day one.
 - **Coaching workbench + companion browser extension** — hands out prompts,
   bridges them into the learner's own Claude/ChatGPT, pulls results back for
   coaching (copy/deep-link fallback; see §6).
-- **Setup Review tool** — paste config → coach rewrites it stronger.
+- **Setup Review tool** — paste config → coach rewrites it stronger (a direct
+  evolution of v1's generator).
 - **1–3 hero AI-generated videos** for marquee concepts.
 - Progress tracking; quizzes/checks.
 - **Billing:** time-limited full trial → £20+/mo paid plan (Stripe).
@@ -422,10 +439,10 @@ instrument conversion and retention from day one.
   ToS, Acceptable Use — global/privacy-first, 18+.
 - Conversion/retention analytics.
 
-**Phase 2 — Grow:** more paths, deeper adaptive engine, more hero videos,
+**Phase 3 — Grow:** more paths, deeper adaptive engine, more hero videos,
 certificates, richer credits/allowance tuning, polish.
 
-**Phase 3 — Scale:** community, teams/B2B, admin CMS, BYOK for power users,
+**Phase 4 — Scale:** community, teams/B2B, admin CMS, BYOK for power users,
 more integrations.
 
 ## 12. What's still missing / open questions
@@ -481,6 +498,7 @@ _Newest at the top._
 
 | Date       | Decision                                                       |
 | ---------- | -------------------------------------------------------------- |
+| 2026-06-17 | **v1 = a lite "AI-setup + use-case generator"** (see `V1-SPEC.md`), shipped before the full platform; free, EchoVerse-signup-gated; output = profile/instructions + role-based use-case ideas; avatar-or-text intake; must not degrade good input |
 | 2026-06-17 | Practice model = **coach + learner's own Claude/ChatGPT, bridged by a companion browser extension** (day one; copy/deep-link fallback). Our AI = coaching + tailoring only → lowers cost, reframes pricing. Supersedes embedded-sandbox/credits plan |
 | 2026-06-17 | Content = **stages-of-learning ladder** + adaptive **Module 0 (Get Set Up)** with skip/Setup-Review entry; tools covered = **Claude + ChatGPT**; **personal-device-first** |
 | 2026-06-17 | Delivery UX = **hybrid home (Continue + path map)**, **conversational onboarding/placement**, **time-box with per-session override**; lesson loop learn→do→check; guided + free-roam practice |
