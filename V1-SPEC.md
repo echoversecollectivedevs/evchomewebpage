@@ -28,19 +28,25 @@ default. (Same primary audience as the platform; see `PLANNING.md` §2.)
 
 ## 3. What it generates (the output)
 
-1. **Your AI profile** _(the foundation — use case #1)_ — a personalized global
+**Two foundations first, then domain Project Packs.**
+
+1. **Your AI profile** _(foundation — use case #1)_ — a personalized global
    **custom-instructions** block (account-level "about me / how to respond"),
    written for a non-technical user, with clear **"where to paste this"**
    guidance per tool. Everything else builds on this.
-2. **Project Packs** _(use cases #2–10)_ — the core of v1. Each use case isn't a
+2. **Set up your projects & skills** _(foundation — use case #2)_ — an
+   orientation that teaches the structure the rest of v1 relies on: how to create
+   a project, what a skill is, and **what sits where** (see the model in §3.1).
+   Without this, beginners don't have the mental model to use the packs.
+3. **Project Packs** _(use cases #3–10)_ — the core of v1. Each use case isn't a
    throwaway prompt; it's a **durable capability** the user sets up once and
    keeps. A Project Pack contains:
    1. **Create the project** — tool-specific steps (e.g. "New Project → name it
-      'Email Assistant'").
+      'Meeting Prep'").
    2. **Project instructions** — generated + personalized (role, tone, rules,
       do's/don'ts) to paste into the project.
    3. **Add knowledge** _(optional)_ — what to upload/paste (examples you like,
-      signature, a style guide).
+      templates, a style guide).
    4. **Skills (3–5 reusable actions)** — named, reusable prompts that live in
       the project.
    5. **Use it** — how to invoke each skill.
@@ -57,12 +63,12 @@ default. (Same primary audience as the platform; see `PLANNING.md` §2.)
 
 ### 3.1 The first 10 use cases (v1 catalog)
 
-#1 is the global foundation; #2–10 are Project Packs.
+#1–2 are foundations; #3–10 are Project Packs.
 
 | # | Use case | How it helps (personalized to their role) |
 | - | -------- | ----------------------------------------- |
 | 1 | **Set up your AI profile** _(foundation)_ | AI knows your role, context & style every time — multiplies everything below |
-| 2 | **Write better emails, faster** | Draft, reply, fix tone/length — the most universal daily task |
+| 2 | **Set up your projects & skills** _(foundation)_ | Teaches how to create a project, what a skill is, and **what sits where** — the mental model the packs rely on |
 | 3 | **Summarize long things** | Reports, threads, docs → key points; saves hours |
 | 4 | **Brainstorm & unblock** | Ideas, options, angles when you're stuck |
 | 5 | **Notes → action items** | Meeting/call notes → clear next steps & follow-ups |
@@ -72,25 +78,45 @@ default. (Same primary audience as the platform; see `PLANNING.md` §2.)
 | 9 | **Prep for meetings & tough conversations** | Agendas, talking points, role-play practice |
 | 10 | **Draft documents from scratch** | Proposals, briefs, JDs → a first draft to edit |
 
-_Bench (swap candidates): decision support / compare options · social & marketing
-content · career help (CV, cover letter) · simplify jargon · ask questions of a
-spreadsheet · reusable templates & checklists._
+_Bench (swap candidates): **email / drafting replies** (demoted — app-tied to
+Gmail/Outlook, less customisable as a standalone project) · decision support /
+compare options · social & marketing content · career help (CV, cover letter) ·
+simplify jargon · ask questions of a spreadsheet · reusable templates &
+checklists._
 
-### 3.2 Worked example — the "Email" Project Pack
+> **Note on "app-tied" use cases.** Tasks that live in another app the user has
+> already set up (email in Gmail/Outlook, calendar, docs) make awkward standalone
+> projects — the AI doesn't integrate with that app, so it can feel disconnected
+> and un-customised. v1 favours **AI-native** use cases where the AI tool is the
+> natural home. (Deeper app integrations are a possible future, not v1.)
 
-- **You end up with:** an *"Email Assistant"* project that knows your role and
-  voice.
-- **Project instructions (generated):** *"You help [name], a [role] at [company].
-  Write concise, warm emails in UK English. Sign off as [X]. Never invent facts
-  or commitments; ask before sending anything sensitive."*
-- **Add knowledge (optional):** paste 2–3 emails you're proud of; your signature;
-  a tone/style note.
+### 3.2 What sits where (taught in use case #2)
+
+| Layer | What goes here | When it's on |
+| ----- | -------------- | ------------ |
+| **Global custom instructions** | "About me" — role, general style, preferences | Always |
+| **Project** | A context you work in repeatedly + its knowledge | When you're in it |
+| **Skill** | A specific repeatable action (a saved prompt) | When you invoke it |
+
+> Rule of thumb: *about me* → global · *about an area* → project · *a repeatable
+> task* → skill.
+
+### 3.3 Worked example — the "Meeting Prep" Project Pack
+
+A clean, **AI-native** example (no external-app lock-in):
+
+- **You end up with:** a *"Meeting Prep"* project that helps you walk into any
+  meeting prepared.
+- **Project instructions (generated):** *"You help [name], a [role] at [company],
+  prepare for meetings. Be concise and practical. Ask for the meeting's goal and
+  who's attending if not given. Never invent facts about people or commitments."*
+- **Add knowledge (optional):** a recurring agenda template; team/role context.
 - **Skills (3–5):**
-  - *Draft a reply* → "Here's an email I got: [paste]. Reply to [goal]."
-  - *Make it concise* → "Halve the length, keep the key points: [paste]."
-  - *Chase politely* → "Friendly follow-up chasing [X]; we last spoke [when]."
-  - *Hard message* → "Help me say [difficult thing] kindly and professionally."
-  - *Bullets → email* → "Turn these notes into a clear email: [bullets]."
+  - *Build an agenda* → "Meeting about [topic], [time] long, attendees [X]. Draft a focused agenda."
+  - *Talking points* → "Help me make my case for [position] in this meeting."
+  - *Anticipate questions* → "What hard questions might [audience] ask, and how should I answer?"
+  - *Role-play* → "Play [the other person] so I can practise this conversation."
+  - *Recap → actions* → "Here are my notes: [paste]. Pull out decisions & action items."
 - **Fallback (no Projects):** the same instructions become global custom
   instructions, and the 5 skills become a saved prompt list to copy from.
 
@@ -186,7 +212,9 @@ surface — main personal data is sign-up details + saved results + pasted confi
 | Date       | Decision                                                       |
 | ---------- | -------------------------------------------------------------- |
 | 2026-06-17 | **This lite tool is v1** of EchoVerse Academy; full platform = the vision it grows into |
-| 2026-06-17 | First **10 use cases set** (§3.1), profile #1 as the global foundation |
+| 2026-06-17 | First **10 use cases set** (§3.1): **two foundations** (#1 profile, #2 set up projects & skills) + 8 domain Project Packs |
+| 2026-06-17 | **Email demoted to the bench** — app-tied to Gmail/Outlook, awkward/un-customisable as a standalone project; v1 favours AI-native use cases |
+| 2026-06-17 | Added **#2 "Set up your projects & skills"** foundation, incl. the "what sits where" model (global vs project vs skill) |
 | 2026-06-17 | Each use case = a **Project Pack** (create project → instructions → knowledge → **3–5 skills** → use), **not** a throwaway prompt; **graceful fallback** to custom-instructions + prompt library when Projects need a paid tier |
 | 2026-06-17 | Output = **personalized profile/custom instructions** (non-technical focus) **+ role-based use-case ideas** ("build a skill") |
 | 2026-06-17 | Intake = **avatar OR text (user choice)**; both allow pasting current config |
